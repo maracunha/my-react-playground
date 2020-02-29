@@ -38,9 +38,12 @@ const useStyles = makeStyles(theme => ({
   toolbar: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
+    width: '88vw',
+    height: '88vh',
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing(1),
     marginTop: '65px',
+    overflow: 'hidden',
   },
 }));
 
