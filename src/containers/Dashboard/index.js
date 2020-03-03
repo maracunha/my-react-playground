@@ -76,7 +76,7 @@ const useStyles = makeStyles(theme => ({
 
 function Dashboard() {
   const classes = useStyles();
-  const sideList = ['calc', 'first-testes'];
+  const sideList = ['flappy', 'calc', 'first-testes'];
   
   let history = useHistory();
 
