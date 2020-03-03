@@ -14,8 +14,12 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 
+import school from './icons/school-24px.svg';
+import github from './icons/github.svg'
+
 import {  useHistory } from 'react-router-dom';
 import Route from '../../utils/Router'
+import { BottomNavigation } from '@material-ui/core';
 
 const drawerWidth = 200;
 
@@ -36,19 +40,45 @@ const useStyles = makeStyles(theme => ({
     width: drawerWidth,
   },
   toolbar: theme.mixins.toolbar,
+  toolbar2: {
+    textDecoration: 'none',
+    height: '40px',
+    fontWeight: 'bold',
+    fontSize: '20px',
+    color: 'lightslategrey',
+  },
   content: {
     flexGrow: 1,
     width: '88vw',
-    height: '88vh',
+    height: '89vh',
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing(1),
     marginTop: '65px',
     overflow: 'hidden',
   },
+  footer: {
+    position: 'fixed',
+    bottom: '0',
+    height: '30px',
+    width: '100%',
+    backgroundColor: 'white',
+    textAlign: 'right',
+    paddingRight: '40px'
+  },
+  bottom: {
+    textDecoration: 'none',
+    color: 'dark-grey',
+    fontWeight: '400',
+    textAlign: 'center',
+    fontSize: '1rem',
+    fontFamily: 'Roboto',
+    letterSpacing: '0.00938em',
+  },
 }));
 
 function Dashboard() {
   const classes = useStyles();
+  const sideList = ['calc', 'first-testes'];
   
   let history = useHistory();
 
@@ -57,6 +87,7 @@ function Dashboard() {
   };
 
   return (
+    <>
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
@@ -74,10 +105,15 @@ function Dashboard() {
         }}
         anchor="left"
       >
-        <div className={classes.toolbar}>RE235</div>
+        <div className={classes.toolbar}>
+          <a href='/' className={classes.toolbar2}>
+            <img src={school} className={classes.toolbar2} alt='school' />
+            <span>  RE235</span>
+          </a>
+        </div>
         <Divider />
         <List>
-          {['calc', 'first-testes', 'Send email', 'Drafts'].map((text, index) => (
+          {sideList.map((text, index) => (
             <ListItem button key={text} onClick={() => handleClick(text)}> 
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                 <ListItemText primary={text} />
@@ -89,6 +125,13 @@ function Dashboard() {
         <Route />
       </main>
     </div>
+    <footer className={classes.footer}> 
+      <a href='https://github.com/maracunha/my-react-playground' className={classes.bottom} target='_blank' rel='noopener noreferrer'>
+        <img src={github} alt='github' />
+        <span> this project on github </span>
+      </a>
+    </footer>
+    </>
   );
 }
 
