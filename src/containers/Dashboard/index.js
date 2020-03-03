@@ -11,17 +11,15 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import SubdirectoryArrowRightTwoToneIcon from '@material-ui/icons/SubdirectoryArrowRightTwoTone';
 
 import school from './icons/school-24px.svg';
 import github from './icons/github.svg'
 
 import {  useHistory } from 'react-router-dom';
 import Route from '../../utils/Router'
-import { BottomNavigation } from '@material-ui/core';
 
-const drawerWidth = 200;
+const drawerWidth = 220;
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -115,8 +113,8 @@ function Dashboard() {
         <List>
           {sideList.map((text, index) => (
             <ListItem button key={text} onClick={() => handleClick(text)}> 
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemIcon>{<SubdirectoryArrowRightTwoToneIcon />}</ListItemIcon>
+                <ListItemText primary={text.toUpperCase()} />
             </ListItem>
           ))}
         </List>

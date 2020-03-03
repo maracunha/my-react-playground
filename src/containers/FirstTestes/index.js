@@ -5,16 +5,10 @@ import List from "./List";
 import List2 from "./List2";
 import Contador  from "./Contador";
 
-import BackButton from '../../components/BackButton'
-
 function FirstTestes() {
 
   return (
     <>
-    <div>
-      <BackButton />
-      <br/>
-    </div>
     <div>
       <Count initialCount={1} />
       <p>-------------</p>
