@@ -2,18 +2,14 @@
   box-sizing: border-box;
 }
 
-html {
-  height: 100%;
-}
-
-body{
+.body{
   margin: 0;
   background-color: #0D262D;
   color: #fff;
   height: 100%;
 }
 
-.conteudo {
+.content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,11 +22,11 @@ body{
   src: url('./fonts/Pixel.ttf');
 }
 
-[wm-flappy] {
+.flappy {
   position: relative;
   border: 5px solid dodgerblue;
-  height: 700px;
-  width: 1200px;
+  height: 70vh;
+  width: 95%;
   margin: 15px;
   background-color: deepskyblue;
   overflow: hidden;
