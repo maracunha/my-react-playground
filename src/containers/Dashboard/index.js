@@ -13,15 +13,15 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import SubdirectoryArrowRightTwoToneIcon from '@material-ui/icons/SubdirectoryArrowRightTwoTone';
 
+import { useHistory } from 'react-router-dom';
 import school from './icons/school-24px.svg';
-import github from './icons/github.svg'
+import github from './icons/github.svg';
 
-import {  useHistory } from 'react-router-dom';
-import Route from '../../utils/Router'
+import Route from '../../utils/Router';
 
 const drawerWidth = 220;
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
@@ -61,7 +61,7 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     backgroundColor: 'white',
     textAlign: 'right',
-    paddingRight: '40px'
+    paddingRight: '40px',
   },
   bottom: {
     textDecoration: 'none',
@@ -76,59 +76,59 @@ const useStyles = makeStyles(theme => ({
 
 function Dashboard() {
   const classes = useStyles();
-  const sideList = ['flappy', 'calc', 'first-testes'];
-  
-  let history = useHistory();
+  const sideList = ['flappy', 'calc', 'first-testes', 'hitest'];
+
+  const history = useHistory();
 
   function handleClick(text) {
     history.push(`/${text}`);
-  };
+  }
 
   return (
     <>
-    <div className={classes.root}>
-      <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="h6" noWrap>
-            My Raact Tests
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        className={classes.drawer}
-        variant="permanent"
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-        anchor="left"
-      >
-        <div className={classes.toolbar}>
-          <a href='/' className={classes.toolbar2}>
-            <img src={school} className={classes.toolbar2} alt='school' />
-            <span>  RE235</span>
-          </a>
-        </div>
-        <Divider />
-        <List>
-          {sideList.map((text, index) => (
-            <ListItem button key={text} onClick={() => handleClick(text)}> 
-                <ListItemIcon>{<SubdirectoryArrowRightTwoToneIcon />}</ListItemIcon>
+      <div className={classes.root}>
+        <CssBaseline />
+        <AppBar position="fixed" className={classes.appBar}>
+          <Toolbar>
+            <Typography variant="h6" noWrap>
+              My React Tests
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          className={classes.drawer}
+          variant="permanent"
+          classes={{
+            paper: classes.drawerPaper,
+          }}
+          anchor="left"
+        >
+          <div className={classes.toolbar}>
+            <a href="/" className={classes.toolbar2}>
+              <img src={school} className={classes.toolbar2} alt="school" />
+              <span>  RE235</span>
+            </a>
+          </div>
+          <Divider />
+          <List>
+            {sideList.map((text, index) => (
+              <ListItem button key={text} onClick={() => handleClick(text)}>
+                <ListItemIcon><SubdirectoryArrowRightTwoToneIcon /></ListItemIcon>
                 <ListItemText primary={text.toUpperCase()} />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-      <main className={classes.content}>
-        <Route />
-      </main>
-    </div>
-    <footer className={classes.footer}> 
-      <a href='https://github.com/maracunha/my-react-playground' className={classes.bottom} target='_blank' rel='noopener noreferrer'>
-        <img src={github} alt='github' />
-        <span> this project on github </span>
-      </a>
-    </footer>
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+        <main className={classes.content}>
+          <Route />
+        </main>
+      </div>
+      <footer className={classes.footer}>
+        <a href="https://github.com/maracunha/my-react-playground" className={classes.bottom} target="_blank" rel="noopener noreferrer">
+          <img src={github} alt="github" />
+          <span> this project on github </span>
+        </a>
+      </footer>
     </>
   );
 }

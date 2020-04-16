@@ -1,21 +1,21 @@
-import React from "react";
+import React from 'react';
 
 class List extends React.PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      items: ["foo", "bar"]
+      items: ['foo', 'bar'],
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
     const items = this.state.items.slice();
-    items.unshift("baz");
+    items.unshift('baz');
 
     this.setState({
-      items
+      items,
     });
   }
 

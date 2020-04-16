@@ -13,7 +13,7 @@ function ReactLogo() {
         </p>
       </header>
     </div>
-  )
+  );
 }
 
 export default ReactLogo;
